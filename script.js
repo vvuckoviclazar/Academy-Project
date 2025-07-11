@@ -45,10 +45,25 @@ class Car {
   }
 }
 
-var car1 = new Car("Subary", "Legacy", 1563, "black");
-var car1 = new Car("Ford", "Taurus", 1876, "blue");
-var car1 = new Car("Porsche", "Panamera", 1563, "grey");
+class Convertible extends Car {
+  constructor(make, model, weight, color, roofType) {
+    super(make, model, weight, color);
+    this.roofType = roofType;
+  }
 
-car1.weight = 1900;
+  getInfo() {
+    return super.getInfo() + "\n" + "Roof type:" + this.roofType;
+  }
+}
 
-console.log(Car.kwToHp(250));
+let convertible1 = new Convertible(
+  "Honda",
+  "S2000",
+  1274,
+  "silver",
+  "Vinyl, soft-top"
+);
+
+let convertible1Name = convertible1.name;
+
+console.log(convertible1.getInfo());
