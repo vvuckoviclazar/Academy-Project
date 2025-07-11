@@ -1,69 +1,51 @@
 "use strict";
 
-class Car {
-  constructor(make, model, weight, color) {
-    this.make = make;
-    this.model = model;
-    this._weight = weight;
-    this.color = color;
-  }
-
-  get name() {
-    return this.make + " " + this.model;
-  }
-
-  set weight(weight) {
-    if (isNaN(this.weight)) {
-      this._weight = weight;
-    } else {
-      throw new TypeError("Value of weight must be a number!");
-    }
-  }
-
-  get weight() {
-    return this._weight + "kg";
+class studentsInfo {
+  constructor(name, adress, phone, course) {
+    this.name = name;
+    this.adress = adress;
+    this.phone = phone;
+    this.course = course;
   }
 
   getInfo() {
     return (
-      "Make:" +
-      this.make +
+      "Name:" +
+      this.name +
       "\n" +
-      "Model:" +
-      this.model +
+      "Adress:" +
+      this.adress +
       "\n" +
-      "Weight:" +
-      this.weight +
+      "Phone:" +
+      this.phone +
       "\n" +
-      "Color:" +
-      this.color
+      "Course:" +
+      this.course
     );
   }
-
-  static kwToHp(kw) {
-    return (kw * 1.34102).toFixed(2);
-  }
 }
 
-class Convertible extends Car {
-  constructor(make, model, weight, color, roofType) {
-    super(make, model, weight, color);
-    this.roofType = roofType;
-  }
-
-  getInfo() {
-    return super.getInfo() + "\n" + "Roof type:" + this.roofType;
-  }
-}
-
-let convertible1 = new Convertible(
-  "Honda",
-  "S2000",
-  1274,
-  "silver",
-  "Vinyl, soft-top"
+const student1 = new studentsInfo(
+  "John Benson",
+  "High Park 36",
+  "(507) 883-3567",
+  "Geography"
 );
 
-let convertible1Name = convertible1.name;
+const student2 = new studentsInfo(
+  "Rico Stivens",
+  "Down Park 25",
+  "(607) 663-3787",
+  "Biology"
+);
 
-console.log(convertible1.getInfo());
+const student3 = new studentsInfo(
+  "Samantha Robinson",
+  "Middle Park 15",
+  "(707) 773-4367",
+  "Art"
+);
+
+console.log(student1.getInfo());
+console.log(student2.getInfo());
+console.log(student3.getInfo());
